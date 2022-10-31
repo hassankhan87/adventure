@@ -30,7 +30,12 @@ namespace Api.Controllers
                         {
                             new Choice() {
                                 Id = Guid.NewGuid(),
-                                Title = "NO"
+                                Title = "NO",
+                                NextQuestion = new Question()
+                                {
+                                    Id = Guid.NewGuid(),
+                                    Title = "May be you want an apple?",
+                                }
                             },
                             new Choice() {
                                 Id = Guid.NewGuid(),
