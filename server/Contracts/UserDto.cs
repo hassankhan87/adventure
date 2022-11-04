@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Contracts
 {
-    public class Player
+    public class UserDto
     {
-
     }
 }

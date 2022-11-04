@@ -8,12 +8,24 @@ namespace Domain.Entities
 {
     public class Choice
     {
+        public Choice()
+        {
+            
+        }
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
-        public string? Description { get; set; }
         public Guid QuestionId { get; set; }
         public Question Question { get; set; } = null!;
         public Guid? NextQuestionId { get; set; }
         public Question? NextQuestion { get; set; }
+
+        //public void ChoiceNextQuestionExtension(this Choice choice)
+        //{
+        //    if (choice.NextQuestion is not null)
+        //    {
+        //        choice.NextQuestion.Adventure = choice.Question.Adventure;
+        //        choice.NextQuestion.AdventureId = choice.Question.AdventureId;
+        //    }
+        //}
     }
 }
