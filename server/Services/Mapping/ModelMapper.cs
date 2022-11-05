@@ -20,9 +20,10 @@ namespace Services.Mapping
             cfg.CreateMap<Adventure, AdventureDto>();
             cfg.CreateMap<AdventureDto, Adventure>();
             cfg.CreateMap<ChoiceForCreationDto, Choice>();
-            //cfg.CreateMap<Choice, Choice>().ForPath(dest => dest.NextQuestion.AdventureId, opt => opt.MapFrom(src => src.Question.AdventureId));
             cfg.CreateMap<QuestionForCreationDto, Question>();
             cfg.CreateMap<AdventureForCreationDto, Adventure>();
+            cfg.CreateMap<UserChoiceForCreationDto, UserChoice>();
+            cfg.CreateMap<UserAdventureForCreationDto, UserAdventure>();
             cfg.CreateMap<UserForCreationDto, User>();
             cfg.CreateMap<Choice, ChoiceDto>();
             cfg.CreateMap<ChoiceDto, Choice>();

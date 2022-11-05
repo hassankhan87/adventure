@@ -13,7 +13,7 @@ namespace Persistence.Repositories
     {
         private readonly RepositoryDbContext _dbContext;
         public AdventureRepository(RepositoryDbContext dbContext) => _dbContext = dbContext;
-        public async Task<Adventure> GetByIdAsync(Guid adventureId)
+        public async Task<Adventure?> GetByIdAsync(Guid adventureId)
         {
             return await _dbContext.Adventures
                 .Include(x => x.Questions)

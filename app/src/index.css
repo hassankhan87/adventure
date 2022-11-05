@@ -49,3 +49,18 @@ button {
   font-size: larger;
   font-weight: 500;
 }
+
+.selectedquestion
+{
+  margin: 0px;
+  color: #000000;
+  font-size: larger;
+}
+
+.selectectedChoice {
+  background: #00e313;
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  border-color: #ffffff;
+}

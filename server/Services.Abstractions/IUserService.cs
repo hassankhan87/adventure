@@ -11,5 +11,7 @@ namespace Services.Abstractions
     {
         Task<UserDto> GetByIdAsync(Guid userId);
         Task<UserDto> CreateAsync(UserForCreationDto userForCreationDto);
+        Task<UserAdventureDto> CreateUserAdventureAsync(UserAdventureForCreationDto userAdventureForCreationDto);
+        Task<AdventureAndUserAdventureDto> GetUserAdventureByIdAsync(Guid userAdventureId);
     }
 }

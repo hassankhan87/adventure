@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Persistence.Configurations
 {
-    internal class ChoiceConfiguration : IEntityTypeConfiguration<Choice>
+    internal class UserAdventureConfiguration : IEntityTypeConfiguration<UserAdventure>
     {
-        public void Configure(EntityTypeBuilder<Choice> builder)
+        public void Configure(EntityTypeBuilder<UserAdventure> builder)
         {
-            builder.Property(p => p.Title).HasMaxLength(256);            
+            // No need for now
         }
     }
 }

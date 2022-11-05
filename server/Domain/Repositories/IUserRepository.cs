@@ -9,7 +9,9 @@ namespace Domain.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetByIdAsync(Guid userId);
+        Task<User?> GetByIdAsync(Guid userId);
         void Insert(User user);
+        void AddUserAdventure(UserAdventure userAdventure);
+        Task<UserAdventure?> GetUserAdventureByIdAsync(Guid userAdventureId);
     }
 }

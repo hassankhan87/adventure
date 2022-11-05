@@ -14,5 +14,6 @@ namespace Domain.Entities
         public Adventure Adventure { get; set; } = null!;
         public Guid UserId { get; set; }
         public User User { get; set; } = null!;
+        public ICollection<UserChoice>? UserChoices { get; set; }
     }
 }

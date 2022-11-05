@@ -1,16 +1,17 @@
 import myEnv from './env.json';
 
-function readResponse(response)
+async function readResponse(response)
 {
   let useableResponse = "";
-  const readJson = response.json();
+  const readJson = await response.json();
   if(readJson.error)
   {
     useableResponse = readJson.error;
   }
   else if(readJson.errors && readJson.title)
   {
-    useableResponse = 'Some issue in completing this request';
+    useableResponse = {error:'Some issue in completing this request'};
+    console.log(readJson);
   }else{
     useableResponse = readJson;
   }
@@ -42,13 +43,26 @@ async function createUser(data) {
     const response = await fetch(myEnv.URL+"/adventure/"+adventureId);
     return readResponse(response);
   }
+
+  async function createUserAdventure(data) {
+    const requestObj = setupRequest('POST',data);
+    const response = await fetch(myEnv.URL+"/user/create/adventure", requestObj);
+    return await readResponse(response);
+  }
+
+  async function getUserAdventure(userAdventureId) {
+    const response = await fetch(myEnv.URL+"/user/get/adventure/"+userAdventureId);
+    return readResponse(response);
+  }
   
   
 
      const Api = {
         createUser: createUser,
         createAdventure: createAdventure,
-        getAdventure:getAdventure
+        getAdventure:getAdventure,
+        createUserAdventure:createUserAdventure,
+        getUserAdventure:getUserAdventure
       };    
 
       export default Api;

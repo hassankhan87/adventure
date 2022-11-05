@@ -33,6 +33,15 @@ namespace Services
             return _mapper.Map<UserDto>(user);
         }
 
+        public async Task<UserAdventureDto> CreateUserAdventureAsync(UserAdventureForCreationDto userAdventureForCreationDto)
+        {
+            var userAdventure = _mapper.Map<UserAdventure>(userAdventureForCreationDto);
+            _repositoryManager.UserRepository.AddUserAdventure(userAdventure);
+
+            await _repositoryManager.UnitOfWork.SaveChangesAsync();
+            return _mapper.Map<UserAdventureDto>(userAdventure);
+        }
+
         public async Task<UserDto> GetByIdAsync(Guid userId)
         {
             var user = await _repositoryManager.UserRepository.GetByIdAsync(userId);
@@ -42,6 +51,20 @@ namespace Services
             }
             var userDto = _mapper.Map<UserDto>(user);
             return userDto;
+        }
+
+        public async Task<AdventureAndUserAdventureDto> GetUserAdventureByIdAsync(Guid userAdventureId)
+        {
+            var userAdventureDomain = await _repositoryManager.UserRepository.GetUserAdventureByIdAsync(userAdventureId);
+            if (userAdventureDomain is null)
+            {
+                throw new UserAdventureNotFoundException(userAdventureId);
+            }
+            var adventureDomain = await _repositoryManager.AdventureRepository.GetByIdAsync(userAdventureDomain.AdventureId);
+            var userAdventure = _mapper.Map<UserAdventureDto>(userAdventureDomain);
+            var adventure= _mapper.Map<AdventureDto>(adventureDomain);
+            var response = new AdventureAndUserAdventureDto() { UserAdventure = userAdventure, Adventure=adventure };
+            return response;
         }
     }
 }

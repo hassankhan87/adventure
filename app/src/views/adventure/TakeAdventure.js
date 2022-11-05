@@ -4,9 +4,9 @@ import Api from '../../api/endpoints'
 import Nav from '../../components/Nav';
 
 
-
 const TakeAdventure = () => {
     const [adventure, setAdventure]= useState("");
+    const [userAdventure, setuserAdventure]= useState({});
     const [notReady, setnotReady]= useState(false);
     const [error, setError]= useState("Adventure is not ready, kindly create it");
     useEffect(() => {
@@ -21,7 +21,9 @@ const TakeAdventure = () => {
           }
           else
           {
+            const userId=window.localStorage.getItem('userId');
             setAdventure(adventureReponse);
+            setuserAdventure({adventureId:adventureId, userId:userId,session:new Date().toJSON()})
           }
         }
         fetchAdventure();        
@@ -34,7 +36,7 @@ const TakeAdventure = () => {
     <>
     <Nav />
     {notReady && error && <div>{error}</div>}
-    {adventure && adventure.questions[0] && <Question key={0} question={adventure.questions[0]} />}
+    {adventure && adventure.questions[0] && <Question key={0} question={adventure.questions[0]} userAdventure={userAdventure} />}
     </>
   )
 }

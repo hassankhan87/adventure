@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public class UserAdventureDto
+    public class UserAdventureForCreationDto
     {
-        public Guid Id { get; set; }
         public DateTime Session { get; set; }
         public Guid AdventureId { get; set; }
-        public AdventureDto Adventure { get; set; } = null!;
         public Guid UserId { get; set; }
-        public UserDto User { get; set; } = null!;
-        public ICollection<UserChoiceDto>? UserChoices { get; set; }
+        public ICollection<UserChoiceForCreationDto>? UserChoices { get; set; }
+    }
+
+    public class UserChoiceForCreationDto
+    {
+        public Guid ChoiceId { get; set; }
     }
 }

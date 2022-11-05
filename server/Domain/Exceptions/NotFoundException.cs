@@ -29,4 +29,12 @@ namespace Domain.Exceptions
         {
         }
     }
+
+    public sealed class UserAdventureNotFoundException : NotFoundException
+    {
+        public UserAdventureNotFoundException(Guid userAdventureId)
+            : base($"The user adventure with the identifier {userAdventureId} was not found.")
+        {
+        }
+    }
 }

@@ -57,7 +57,13 @@ const CreateAdventure = () => {
             }            
         }
         return true;
-    }  
+    }
+    
+    const handleClearStorage = ()=> {
+        window.localStorage.removeItem('adventureId');
+        window.localStorage.removeItem('userId');
+        window.localStorage.removeItem('userAdventureId');
+    }
   return (
     <>
     <Nav />
@@ -65,6 +71,7 @@ const CreateAdventure = () => {
             <textarea onChange={handleTreeChange} value={tree}></textarea>
             <p value={error}></p>
             <button onClick={handleAdventureCreation} disabled={loading}>Create Adventure</button>
+            <button onClick={handleClearStorage} disabled={loading}>Clear Data</button>
         </div>
     </>
   )

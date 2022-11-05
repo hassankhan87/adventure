@@ -9,7 +9,7 @@ namespace Domain.Repositories
 {
     public interface IAdventureRepository
     {
-        Task<Adventure> GetByIdAsync(Guid adventureId);
+        Task<Adventure?> GetByIdAsync(Guid adventureId);
         void Insert(Adventure adventure);
     }
 }
