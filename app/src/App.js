@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import TakeAdventure from './views/adventure/TakeAdventure';
-
+import MainRoutes from './routes/Routes';
 
 function App() {
   return (
     <div className="App">
-      <TakeAdventure />
+      <MainRoutes>
+        
+      </MainRoutes>      
     </div>
   );
 }

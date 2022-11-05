@@ -8,5 +8,6 @@ namespace Contracts
 {
     public class UserForCreationDto
     {
+        public string Name { get; set; } = string.Empty;
     }
 }

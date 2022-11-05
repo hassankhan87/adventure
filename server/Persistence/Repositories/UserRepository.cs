@@ -13,9 +13,14 @@ namespace Persistence.Repositories
         private readonly RepositoryDbContext _dbContext;
         public UserRepository(RepositoryDbContext dbContext) => _dbContext = dbContext;
 
-        public Task<User> GetByIdAsync(Guid userId)
+        public async Task<User> GetByIdAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users.FindAsync(userId);
+        }
+
+        public void Insert(User user)
+        {
+            _dbContext.Users.Add(user);            
         }
     }
 }

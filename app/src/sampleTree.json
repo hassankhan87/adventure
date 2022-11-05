@@ -1,0 +1,66 @@
+[
+    {
+      "title": "DO I WANT A DOUGHUNT",
+      "choices": [
+        {
+          "title": "NO",
+          "nextQuestion": {
+            "title": "May be you want an apple?",
+            "choices": null
+          }
+        },
+        {
+          "title": "YES",
+          "nextQuestion": {
+            "title": "Do I deserve it?",
+            "choices": [
+              {
+                "title": "YES",
+                "nextQuestion": {
+                  "title": "Are you sure?",
+                  "choices": [
+                    {
+                      "title": "Yes",
+                      "nextQuestion": {
+                        "title": "Get it.",
+                        "choices": null
+                      }
+                    },
+                    {
+                      "title": "NO",
+                      "nextQuestion": {
+                        "title": "Do jumping jacks first.",
+                        "choices": null
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "NO",
+                "nextQuestion": {
+                  "title": "Is it a good doughunt?",
+                  "choices": [
+                    {
+                      "title": "Yes",
+                      "nextQuestion": {
+                        "title": "What are you waiting for? Grab it now.",
+                        "choices": null
+                      }
+                    },
+                    {
+                      "title": "NO",
+                      "nextQuestion": {
+                        "title": "Wait til you find a sinful, unforgettable doughunt.",
+                        "choices": null
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+]

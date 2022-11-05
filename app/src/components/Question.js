@@ -6,7 +6,7 @@ const Question = ({question}) => {
     
     return (
     <>
-    {mainQuestion && <div id={mainQuestion.id}>{mainQuestion.title}</div>}
+    {mainQuestion && <div id={mainQuestion.id} className="question">{mainQuestion.title}</div>}
     
     {mainQuestion && mainQuestion.choices && mainQuestion.choices.map((choice,index)=>(
         <Choice key={index} choice={choice} setMainQuestion={setMainQuestion}/>

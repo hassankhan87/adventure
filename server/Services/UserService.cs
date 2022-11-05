@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
+using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Repositories;
 using Domain.Utilities;
 using Services.Abstractions;
@@ -22,14 +24,24 @@ namespace Services
             _mapper = utilityManager.Mapper;
         }
 
-        public Task<UserDto> CreateAsync(UserForCreationDto userForCreationDto)
+        public async Task<UserDto> CreateAsync(UserForCreationDto userForCreationDto)
         {
-            throw new NotImplementedException();
+            var user = _mapper.Map<User>(userForCreationDto);
+            _repositoryManager.UserRepository.Insert(user);
+
+            await _repositoryManager.UnitOfWork.SaveChangesAsync();
+            return _mapper.Map<UserDto>(user);
         }
 
-        public Task<UserDto> GetByIdAsync(Guid userId)
+        public async Task<UserDto> GetByIdAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            var user = await _repositoryManager.UserRepository.GetByIdAsync(userId);
+            if (user is null)
+            {
+                throw new UserNotFoundException(userId);
+            }
+            var userDto = _mapper.Map<UserDto>(user);
+            return userDto;
         }
     }
 }

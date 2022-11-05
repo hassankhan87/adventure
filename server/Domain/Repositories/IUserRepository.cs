@@ -10,5 +10,6 @@ namespace Domain.Repositories
     public interface IUserRepository
     {
         Task<User> GetByIdAsync(Guid userId);
+        void Insert(User user);
     }
 }

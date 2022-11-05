@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #e3007c;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+span {
+  width: auto;
+    padding: 10px;
+}
+a {
+  color: #ffffff;
+}
+a:link { text-decoration: none; }
+textarea {
+  width: 90%;
+  height: 500px;
+}
+
+button {
+  background: #e3007c;
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  border-color: #ffffff;
+}
+
+.question
+{
+  color: #000000;
+  font-size: larger;
+  font-weight: 500;
+}
