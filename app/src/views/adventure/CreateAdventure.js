@@ -20,7 +20,6 @@ const CreateAdventure = () => {
         if(userResponse)
         {
             const userId = window.localStorage.getItem('userId');
-            //var postTree = JSON.stringify(tree);
             var mainTree = {
                 name: "Adventure",
                 creatorId: userId,
@@ -70,7 +69,7 @@ const CreateAdventure = () => {
         <div>
             <textarea onChange={handleTreeChange} value={tree}></textarea>
             <p value={error}></p>
-            <button onClick={handleAdventureCreation} disabled={loading}>Create Adventure</button>
+            <button id='createAdventure' onClick={handleAdventureCreation} disabled={loading}>Create Adventure</button>
             <button onClick={handleClearStorage} disabled={loading}>Clear Data</button>
         </div>
     </>

@@ -32,7 +32,7 @@ const MyAdventure = () => {
 
     const showQuestions = (question) =>
     {
-      return (<div key={question.id} id={question.id}><p className="selectedquestion">{question.title}</p>
+      return (<div key={question.id} id={question.id}><p className="selectedquestion" name={question.title} >{question.title}</p>
         <div>{showChoices(question.choices)}</div>
       </div>);
     }

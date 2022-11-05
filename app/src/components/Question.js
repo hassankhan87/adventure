@@ -36,7 +36,7 @@ const Question = ({question,userAdventure}) => {
       }else{
         return (<div><div id={mainQuestion.id} className="question">{mainQuestion.title}</div>
         <div>{error}</div>
-        <div><button onClick={handleUserChoices}>My Adventure</button></div></div>)
+        <div><button id='gotomyadventure' onClick={handleUserChoices}>My Adventure</button></div></div>)
       }
     }
     return (

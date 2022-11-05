@@ -8,7 +8,7 @@ const Choice = ({choice, setMainQuestion,setUserChoices}) => {
       setUserChoices(userchoices => [...userchoices, {choiceId:id}]);
     }
   return (
-    <button id={id} onClick={()=>handleChoice()}>{title}</button>
+    <button id={id} name={title} onClick={()=>handleChoice()}>{title}</button>
   )
 }
 
