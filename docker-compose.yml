@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:5.7.37
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Testing
+      MYSQL_DATABASE: adventure
+    ports:
+      - "3307:3306"
+    volumes:
+       - dbdata:/var/lib/mysql  
+
+  db-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 5030:8080
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: always
+    image: adventure-api-local:local
+    container_name: adventure-api-local
+    environment:
+      - ConnectionStrings__Default=server=db;Database=adventure;uid=root;pwd=Testing;
+      - ./server/env.development
+    ports:
+      - "49140:80"
+    depends_on:
+       - db 
+      
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile      
+    restart: always
+    image: adventure-app-local:local
+    container_name: adventure-app-local
+    ports:
+      - "3000:80"
+
+volumes:
+    dbdata:

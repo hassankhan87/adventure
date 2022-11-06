@@ -11,7 +11,7 @@ async function readResponse(response)
   else if(readJson.errors && readJson.title)
   {
     useableResponse = {error:'Some issue in completing this request'};
-    console.log(readJson);
+    
   }else{
     useableResponse = readJson;
   }
